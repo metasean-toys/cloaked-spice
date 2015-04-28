@@ -25,7 +25,7 @@ var app = express();
 //	var Gun = require('./gun/gun.js'); <-- Was working, until I switched to Express
 //                                         and added gun.attach(app); now sends
 //                                         TypeError: Object #<Gun> has no method 'attach'
-	var Gun = require('./gun/gun.js');
+	var Gun = require('gun');
 
 
 /****************************************************
@@ -51,7 +51,9 @@ var app = express();
 			}
 		});
 		*/
-	var gun = Gun({ file: 'data.json' }).key('hello/world/data'); 
+	var gun = Gun({ 
+		file: 'data.json' 
+	});
 
 	/* Save an initial object, e.g.
 		gun.set({hello: "world"}).key('random/0gk7RVviW');
@@ -60,7 +62,23 @@ var app = express();
 		OR
 		gun.set({hello: "world"});  <-- WRONG - NEEDS A KEY
 		*/
-	gun.set({hello: "world!"}).key('hello/world/data');
+// Following gives a 
+// TypeError: Object function (err) {console.log('error setting hello to world!'); } has no method 'key'
+// on index.js:72
+	gun.set({
+		hello: "world!"
+	}),	function(err) {
+		console.log('error setting hello to world!');
+	}.key('hello/world/datastore');
+
+
+// Following gives me a
+// throw er; // Unhandled 'error' event
+// on events.js:72
+/*	gun.set({
+		hello: "world!"
+	}).key('hello/world/datastore');
+*/
 
 /* Try it now - step 2 */
 	/* Load data in the main html file */

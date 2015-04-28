@@ -35,6 +35,7 @@
 			*/
 
 
+
 		/****************************************************
 			Included in the actual "Try it now" steps 
 		****************************************************/
@@ -51,7 +52,9 @@
 				NOT
 				var gun = Gun(location.origin + '/gun').load('example/todo/data').set({});
 				*/
-			var ref = gun.load('hello/world/data');
+			var gun = Gun(location.origin + '/gun');
+			var ref = gun.load('hello/world/datastore');
+			gun.set({hello: "world!"}).key('hello/world/datastore');
 
 			/* Stringify the saved JSON and use jQuery to display it, e.g.
 				ref.on(function(data) {
