@@ -48,11 +48,10 @@
 
 			/* Load the contents of the data source into a local variable, e.g.
 				var ref = gun.load('random/0gk7RVviW');
-				OR
+				NOT
 				var gun = Gun(location.origin + '/gun').load('example/todo/data').set({});
 				*/
-			var ref = gun.load('data');
-			var ref = gun.load('data.json');
+			var ref = gun.load('hello/world/data');
 
 			/* Stringify the saved JSON and use jQuery to display it, e.g.
 				ref.on(function(data) {

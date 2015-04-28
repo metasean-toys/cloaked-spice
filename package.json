@@ -1,0 +1,16 @@
+{
+  "name": "GunDBio-Example",
+  "version": "0.0.2",
+  "author": "Sean Duncan",
+  "description": "Learning GunDB",
+  "engines": {
+    "node": "~>0.6.6"
+  },
+  "dependencies": {
+    "express": "^4.12.3",
+    "gun": "0.1.5"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
