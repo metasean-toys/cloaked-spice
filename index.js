@@ -67,9 +67,10 @@ var app = express();
 // on index.js:72
 	gun.set({
 		hello: "world!"
-	}),	function(err) {
-		console.log('error setting hello to world!');
-	}.key('hello/world/datastore');
+	},	function(err, yes) {  // yes limited to plugin, follow standard err/success protocol
+		err && console.log('error setting hello to world!');
+		yes && console.log('yesum:', yes);  // lack of success may be due to lack of protocol responding
+	}).key('hello/world/datastore');
 
 
 // Following gives me a
